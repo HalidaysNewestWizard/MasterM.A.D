@@ -4,18 +4,20 @@ import {
     Text,
     TextInput,
     StyleSheet,
+    Clipboard,
 } from "react-native";
+
 import MyCBox from './components/MyCheckBox';
+
 import Btn from './components/Btn';
+
 import OutPut from './components/Output';
+
 import MyTxtBox from './components/MyInputBox';
 
-function Reset(){
-    setNumerals(false);
-    setSpecials(false);
-    setLowerCase(false);
-    setUpperCase(false);
-    };
+import * as password from './utility/passwordGenerator';
+
+
 
 
 
@@ -34,6 +36,19 @@ function Main() : React.JSX.Element {
 
     const[Numerals,setNumerals]=useState(false);
 
+    const [generatedPassword, setGeneratedPassword] = useState('');
+    
+    function Reset(){
+        setUserInput('');
+        setNumerals(false);
+        setSpecials(false);
+        setLowerCase(false);
+        setUpperCase(false);
+        console.log('reset');
+    };
+
+
+
 
     return (
         <View style={styles.Main}>
@@ -47,41 +62,62 @@ function Main() : React.JSX.Element {
             <View>
                <MyCBox
                 title='Upper Case Letters'
-                checked={UpperCase}
-                setChecked={setUpperCase}/>
+                checkedStatus={UpperCase}
+                updateCheckedStatus={setUpperCase}/>
 
 
                 <MyCBox
                 title='Lower Case Letters'
-                checked={LowerCase}
-                setChecked={setLowerCase}
+                checkedStatus={LowerCase}
+                updateCheckedStatus={setLowerCase}
                 />
 
                 <MyCBox
                 title='Special Characters'
-                checked={Specials}
-                setChecked={setSpecials}
+                checkedStatus={Specials}
+                updateCheckedStatus={setSpecials}
                 />
 
                 <MyCBox
                 title='Numbers'
-                checked={Numerals}
-                setChecked={setNumerals}
+                checkedStatus={Numerals}
+                updateCheckedStatus={setNumerals}
                 />
             </View>
 
 
                 <OutPut
-                placeholder ="make a selection"
+                placeholder="make a selection"
+                generatedPassword={generatedPassword}
+                handleCopy={() => {
+                    Clipboard.setString(generatedPassword);
+                    console.log('Copy button pressed');
+                }}
                 />
               <View>
     <Btn
-    type='1'
+    type= {1}
     title='Generate Password'
+    onPress={() => {
+        
+       const generatedPassword = password.generatePasswordString({
+            length: parseInt(userInput), 
+            includeUpper: UpperCase,
+            includeLower: LowerCase,
+            includeNumber: Numerals,
+            includeSymbol: Specials,
+         
+        });
+        console.log('Generate Password button pressed');
+       
+      setGeneratedPassword(generatedPassword); 
+      console.log('Generated Password:', generatedPassword);
+    }}    
     />
     <Btn
-    type='2'
+    type={2}
     title= "RESET"
+    onPress={()=>{Reset()}}
     />
 
 

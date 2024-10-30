@@ -21,7 +21,7 @@ function MyInputBox(props : myInputPropType):React.JSX.Element{
         <View style= {styles.container}>
         <TextInput
         style={styles.inputBox}
-        placeholder="type me "
+        placeholder="Password Length (8-16) "
         value = {userInput}
         onChangeText = {setUserInput}/>
 

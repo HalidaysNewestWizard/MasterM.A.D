@@ -5,8 +5,8 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 type CheckboxProps=
 {
     title:string,
-    checkedStatus : Boolean,
-   updateCheckedStatus : (status:Boolean) => void,
+    checkedStatus : boolean,
+   updateCheckedStatus : (checkedStatus:boolean) => void,
 
 }
 function MyCheckBox(props : CheckboxProps){
@@ -23,6 +23,7 @@ function MyCheckBox(props : CheckboxProps){
         <View style={styles.containerView}>
         <BouncyCheckbox
           style={styles.check}
+         
           isChecked={checked}
           size={25}
           fillColor="red"
@@ -30,7 +31,7 @@ function MyCheckBox(props : CheckboxProps){
           iconStyle={{ borderColor: "red" }}
           innerIconStyle={{ borderWidth: 2 }}
           textStyle={{ fontFamily: "JosefinSans-Regular" }}
-          onPress={(isChecked: boolean) => {console.log(title)}}
+          onPress={(isChecked: boolean) => {console.log(title + ' is ' + isChecked);}}
         >
 
         </BouncyCheckbox>
