@@ -1,12 +1,13 @@
 import * as utils from "./Consts";
 
-const createPassword = (characters: string, passwordLength: number) : string => {
+ export const createPassword = (characters: string, passwordLength: number) : string => {
     console.log("Generating secured password !!!");
     let result = "";
     for(let i=0; i<passwordLength; i++) {
         const idx = Math.round(Math.random() * characters.length);
         result += characters.charAt(idx);
     }
+    console.log(result);
     return result;
 }
 
@@ -22,7 +23,9 @@ export const generatePasswordString = (passReq : utils.PasswordRequirement) : st
     if(passReq.includeSymbol)
         characters += utils.CHARACTERS_SYMBOL;
 
-    const generatedPassword = createPassword(characters, passReq.length);
+    console.log("Characters: ", characters);
+    
+    const generatedPassword = createPassword(utils.CHARACTERS_UPPERCASE, passReq.length);
 
     return generatedPassword;
 }

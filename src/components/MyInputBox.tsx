@@ -33,17 +33,21 @@ function MyInputBox(props : myInputPropType):React.JSX.Element{
 
 const styles = StyleSheet.create({
     inputBox: {
-        padding: 10,
-        marginVertical: 20,
+        height: 50,
+        width: 300,
+        textAlign: 'center',
+        marginVertical: 30,
         fontSize: 25,
-        fontWeight: '600',
+        fontWeight: '500',
 
     },
 container:{
+    width: 300,
+    height: 50,
     justifyContent:'center',
     margin:10,
     backgroundColor:'#f0f8ff',
-    border:'#000000',
+    borderColor:'#000000',
     borderWidth:4,
     borderRadius:10,
 

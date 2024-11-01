@@ -51,8 +51,9 @@ const style = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 10,
         backgroundColor: '#FFF',
-        width: '100%',
-        height: 60,
+        width: 300,
+        height: 50,
+        
         alignSelf: 'center',
         paddingStart: 10,
         flexDirection: 'row',
@@ -62,7 +63,7 @@ const style = StyleSheet.create({
     },
 
     outputTxt: {
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: '600',
         // color: '#3C3D37',
     },

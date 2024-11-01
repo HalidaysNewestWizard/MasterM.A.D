@@ -43,22 +43,25 @@ const styles =StyleSheet.create({
     containerView:{
         marginHorizontal:10,
         marginVertical:5,
+        width:300,
 
         flexDirection:'row',
-        borderWidth:2,
+        borderWidth:4,
         borderRadius:10,
          backgroundColor:'#f0f8ff',
         },
     titleTxt:{
-        marginVertical:10,
-        marginHorizontal:100,
-        fontSize:20,
+        textAlign:'center',
+        marginVertical:5,
+        marginHorizontal:50,
+        fontSize:15,
         fontWeight:'600',
         color:'black'
 
         },
     check:{
         margin:10,
+        width:30,
 
         }
 

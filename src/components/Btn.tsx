@@ -38,13 +38,16 @@ function Btn(props : btnPropType) : React.JSX.Element {
 
 const style = StyleSheet.create({
     btnView: {
+        elevation: 8,
+        borderWidth: 2,
+        borderColor: 'brown',
       borderRadius: 10,
     //   maxWidth: 150,
       minWidth: '40%',
-      height: 60,
+      height: 55,
       alignSelf: 'center',
       padding: 10,
-      marginTop: 50,
+        margin: 10,
       alignItems: 'center',
       justifyContent: 'center',
     },
